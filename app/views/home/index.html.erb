@@ -1,10 +1,13 @@
 <%= title("Home") %>
 
+<%= link_to "Go to Projects", projects_path, class:"btn btn-primary btn-large" %>
+
+<br /> <br />
+
 <div class="row-fluid">
 	<div class="span12">
-		<% if user_signed_in? %>
-			Hi <%= current_user.email %>! <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-		<% end %>
+		Some graphs are displayed here. Overview of the user's activities, projects. Reports 
+		about the projects. Per month. Per year. Etc....
 	</div>
 </div>
 

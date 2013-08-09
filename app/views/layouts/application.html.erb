@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> <%= yield :title %> </title>
+  <title> <%= yield :title %> </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,20 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
-				<h1> PM Tool <small>project management made easy</small> </h1>
+				<div class="pull-left">
+					<h1> PM Tool <small>project management made easy!</small> </h1>
+				</div>
+
+				<div class="pull-right" style="margin-top:20px">
+					<% if user_signed_in? %>
+						<span class="badge badge-info"> <%= current_user.email %> </span> &nbsp; <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+					<% else %>
+
+					<% end %>
+				</div>
+
+				<div class="clearfix"></div>
+
 				<hr />
 			</div>
 		</div>

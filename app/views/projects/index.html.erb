@@ -1,2 +1,38 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<%= title("Projects") %>
+
+<div class="row-fluid">
+	<div class="span12">
+		<%= link_to "Back to Dashboard", root_path, class:"btn btn-primary btn-large" %>
+	</div>
+</div>
+
+<div class="row-fluid" style="margin-top:20px">
+	<div class="span8">
+		<p class="lead" style="text-decoration:underline"> Projects </p>
+
+		<% if @projects.empty? %>
+			<div class="alert alert-warning">
+				No projects created yet.
+			</div>
+		<% else %>
+			<ul id="projects">
+				<%= render @projects %>
+			</ul>
+		<% end %>
+	</div>
+
+	<div class="span4">
+		<p class="badge badge-important"> New Project? Create one here! </p>
+
+		<div id="result" style="margin-top:20px;margin-bottom:20px"></div>
+
+		<%= form_for(Project.new, remote: true, html: {id:"create-project-form"}) do |f| %>
+			<p> <%= f.text_field :name, placeholder:"Name", required:"required" %> </p>
+			<p> <%= f.text_area :desc, placeholder:"Description", rows:3 %> </p>
+
+			<div>
+				<input type="submit" class="btn btn-primary" value="Create" />
+			</div>
+		<% end %>
+	</div>
+</div>

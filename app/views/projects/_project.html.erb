@@ -1,0 +1,1 @@
+<li style="padding:5px"><p> <b><%= project.name %></b> <small> <%= project.desc %> </small> <small class="badge badge-info"> created <%= distance_of_time_in_words(Time.now, project.created_at) %> ago </small> </p>	<ul>		<li> <%= link_to "View Project", project %> </li>	</ul></li>

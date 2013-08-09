@@ -1,0 +1,8 @@
+
+<% if @project.new_record? %>
+	$("#result").html("<%= @project.errors.full_messages %>");
+<% else %>
+	$("#result").html("Project created successfully!");
+<% end %>
+
+$("#projects").html("<%= j render(@projects) %>");
