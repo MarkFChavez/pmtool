@@ -1,7 +1,17 @@
 <%= title(@project.name) %>
 
+<%= link_to "Back to Projects", projects_path, class:"btn btn-primary btn-large" %>
+
+<br /> <br />
+
 <div class="row-fluid">
-	<div class="span12">
+	<div class="span8">
 		<p class="lead"> <%= @project.name %> </p>
+	</div>
+
+	<div class="span4">
+		<p class="lead"> Created by </p>
+
+		<%= gravatar_image_tag(@project.user.email, title: @project.user.email) %>
 	</div>
 </div>
